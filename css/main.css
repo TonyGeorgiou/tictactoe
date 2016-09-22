@@ -1,0 +1,182 @@
+@import "https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet";
+
+h1, p {
+  font-weight: bold;
+  color: red;
+  text-shadow: green 2px 5px;
+}
+
+h1, h2, p, .font {
+  font-family: 'Indie Flower', cursive, sans-serif;
+  text-align: center;
+  font-size: 2em;
+}
+
+.X {
+  font-family: 'Indie Flower', cursive, sans-serif;
+  font-size: 9em;
+  font-weight: bold;
+  color: green;
+  text-shadow: red 2px 5px;
+  line-height: 100px;
+  margin-top: -6px;
+}
+
+.O {
+  font-family: 'Indie Flower', cursive, sans-serif;
+  font-size: 9em;
+  font-weight: bold;
+  color: red;
+  text-shadow: green 2px 5px;
+  line-height: 100px;
+  margin-top: -6px;
+}
+
+body {
+  background: url("../images/BBCHD_testcard_big.jpg") no-repeat center center fixed;
+}
+
+#gameboard {
+  /* margin-left: 47px; To move the board slightly towards center. */
+  position: absolute;
+  left: 67px;
+  top: 118px;
+}
+
+table {
+  background-color: rgba(255,255,255,.8);  /*opacity here rather than background image.*/
+  border-collapse: collapse;
+}
+
+table td, table th {
+  border: 5px solid black;
+  /*padding: 60px;*/
+  width: 110px;
+  height: 110px;
+  text-align: center;
+  overflow: hidden;
+}
+table tr:first-child td {
+    border-top: 0;
+}
+table tr:last-child td {
+    border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+    border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+    border-right: 0;
+}
+
+/*         Using <table> instead of <div>.
+.board {
+  padding; 0px;
+  margin: 0 auto;
+  margin-top: 100px;
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  border: 3px solid;
+}*/
+
+#reset {
+  position:absolute;
+  top: 40px;
+  right: 80px;
+}
+
+
+.playerBox{
+  position: relative;
+  top: 20px;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 6em;
+  font-family: 'Indie Flower', cursive, sans-serif;
+  color: red;
+  text-shadow: green 2px 5px;
+  line-height: 100px;
+  text-align: center;
+  /*margin-right: -10px;*/
+}
+
+#runningScore{
+  width: 100px;
+  height: 100px;
+  border: 5px solid black;
+  background-color: rgba(255,255,255,.8);
+}
+
+#imageCarol > img {
+  width: 100px;
+  height: 100px;
+  border: 5px solid red;
+  /* box-shadow: 0px 10px 15px #f00; */
+  box-shadow: ;
+  /* box-shadow: 0px 10px 15px #f00;  */  /* Glow effect */
+}
+
+#scoreCarol {
+  /*border: 1px solid red;*/
+  overflow: hidden;
+  border: 5px solid red;
+  background-color: rgba(255,255,255,.8);
+}
+
+#scoreAll{
+  right: 70px;
+  top: 96px;
+  position: absolute;
+
+}
+
+#containerClown, #containergGames{
+  margin-top: 20px;
+}
+
+#imageClown > img {
+  width: 100px;
+  height: 100px;
+  border: 5px solid green;
+  /* box-shadow: 0px 10px 15px #0f0; */   /* Glow effect */
+}
+
+#scoreClown {
+  width: 100px;
+  height: 100px;
+  border: 5px solid green;
+  overflow: hidden;
+  background-color: rgba(255,255,255,.8);
+}
+
+/*div.image {
+   content:url(TestCdClown.jpg);
+}​*/
+
+#gamesPlayed {
+  width: 100px;
+  height: 100px;
+  border: 5px solid black;
+  background-color: rgba(255,255,255,.8);
+  font-size: 2em;
+}
+
+#bottomText{
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Indie Flower', cursive, sans-serif;
+  width: 100%;
+  color: red;
+  text-shadow: green 2px 5px;
+}
+
+#bottomText p{
+  font-size: 1em;
+}

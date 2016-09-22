@@ -6,31 +6,67 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
-  <script>$(document).ready(function() {
-  });</script>
+  <script src="js/jquery.js"></script>
+  <script src="js/tictactoe.js"></script>
 
   <title>Tic Tac Toe</title>
 </head>
 <body>
 
-  <h2>Let's play Tic Tac Toe on the telly!</h2>
+  <h1>Carol says, "Let's play Tic Tac Toe on the telly !"</h1>
 
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+<div id="reset">
+<button id="resetButton" type="button">RESET</button>
+</div>
 
-  <img src="mages/169_testcards/BBCHD_testcard_big..jpg" alt="Television test card" style="height: 1081px; width: 1920px;">
+<!--   <div class="board"></div>  Using <table> instead -->
+<div id="gameboard">
+<table>
+  <tr>
+    <td data-xpos="0" data-ypos="0"></td>
+    <td data-xpos="0" data-ypos="1"></td>
+    <td data-xpos="0" data-ypos="2"></td>
+  </tr>
+  <tr>
+    <td data-xpos="1" data-ypos="0"></td>
+    <td data-xpos="1" data-ypos="1"></td>
+    <td data-xpos="1" data-ypos="2"></td>
+  </tr>
+  <tr>
+    <td data-xpos="2" data-ypos="0"></td>
+    <td data-xpos="2" data-ypos="1"></td>
+    <td data-xpos="2" data-ypos="2"></td>
+  </tr>
+</table>
+</div>
 
 
-  <div class="board"></div>
 
-  <div id="X">X</div>
+<div id="scoreAll">
 
-  <div id="O">O</div>
+<div id="containerCarol">
+ <div id="imageCarol" class="playerBox"><img src="images/TesetCdGirl480x480.jpg" alt="pic of little girl"></div>
+ <div id="scoreCarol" class="playerBox"></div>
+</div>
 
+<div id="containerClown">
+  <div id="imageClown" class="playerBox"><img src="images/TestCdCLOWN.jpg" alt="pic of a toy clown"></div>
+  <div id="scoreClown" class="playerBox"></div>
+</div>
 
-<div class="scoreCarol"></div>
+<div id="containergGames">
+  <div id="gamesPlayed" class="playerBox">GAMES</div>
+  <div id="runningScore" class="playerBox"></div>
+</div>
 
-<div class="scoreClown"></div>
+</div>
+
+<div id="bottomText">
+<p>Carol Hersee was just 8 years old when she was photographed with her toy clown, Bubbles, for the BBC test card back in 1967.</p>
+<p>Choose whether to play as Carol, as "O" or Bubbles, as "X".  Good luck!</p>
+</div>
 
 </body>
 </html>
