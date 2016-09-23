@@ -23,11 +23,47 @@ var winner = '';
 
 var isDraw = false;
 
+
+
+
+var funFacts = [
+  "Carol was paid &pound;100 back in 1967 to appear on the test card.",
+  "Bubbles was paid zilch for his guest appearance on the test card.",
+  "When Carol was still at school she was told off by her headmaster who didn't believe she had appeared on TV.",
+  "Carol Hersee still lives in the U.K. and works as a costume designer.",
+  "Bubbles still lives in a cardboard box stored in Carol's home.",
+  "Carol is featured in the Guiness Book of Records as the person appearing for the longest time on TV, ie about 70,000 hours!",
+  "Carol's sister, Gillian, was to also appear on the test card, but lost her two front teeth just before the photo was to be taken.",
+  "The 'X' featured on the little blackboard is used to find the exact centre of television screens.",
+  "The colour of Carol's clothes and Bubbles himself were chosen for testing the quality of specific colours shown on television screens.",
+  "Carol actually appeared on the test card so engineers could test the quality of skintones being broadcast.",
+  "Carol's father, George Hersee, was the BBC engineer who developed the test card back in 1967.",
+  "George Hersee also developed the first newspaper for blind people.",
+  "Test Card F made its debut on BBC2 in 1967. It went on to be used in 30 countries.",
+  "In 1989, the Test Card Circle was formed. They meet every April for a weekend of 'testing' nostalgia in Leominster, U.K. There are over 200 members!!! For details contact: <a href=\"mailto:stuart.montgomery3@btinterest.com\">stuart.montgomery3@btinterest.com</a>.",
+  "No one knows who won the game between Carol and Bubbles displayed on the test card. If you ever find out please let us know. Meanwhile enjoy another game of Tic Tac Toe.",
+  "For more fun facts buy the 'Add-On Fun Fact Package' at: <a>href=\"#\" and keep on enjoying educational Tic Tac Toe."
+];
+
 //*********************************************************************
 //Use minmax values ? Luke's answer: DON"T bother.
 
 //Code for no moving to position already played.
 //***********************************************************************
+
+
+var updatePlayerIndicator = function () {
+  if (currentTurnPlayer  === "Carol" ) {  //testing 4 equivalence (by ===).
+  //Glow effect on Carol when her turn.
+    $(".turnClown, .turnCarol").removeClass('turnClown turnCarol');
+    //$("#imageCarol, #scoreCarol").addClass('turnCarol');
+    $("#containerCarol").addClass('turnCarol');
+  } else {
+    // Glow effect on Bubbles when his turn.
+    $(".turnClown, .turnCarol").removeClass('turnClown turnCarol');
+    $("#containerClown").addClass('turnClown');
+  }
+}
 
 var chooseStartingPlayer = function () {
 
@@ -46,7 +82,8 @@ var chooseStartingPlayer = function () {
 
 };
 
-chooseStartingPlayer();
+
+
 // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 //If Carol first, display her move.
@@ -131,6 +168,8 @@ var testWin = function () {
   } else if (numberOfMoves > 8){
     console.log("It's a draw!");
     isDraw = true;
+    //End loop here to stop gamescore incrementing.?????
+  //  break;
   }
 };
 
@@ -150,16 +189,8 @@ var playMove = function (squareX, squareY) {
     // switch to next player
     if (currentTurnPlayer  === "Carol" ) {  //testing 4 equivalence (by ===).
       currentTurnPlayer  = "Bubbles";    //assigning new value (by single "=").
-      //$(imageClown > img ).html("");    //   ???????
-      $("#imageCarol, #scoreCarol").css('box-shadow', '');
-      $("#imageClown, #scoreClown").css('box-shadow', '0px 10px 15px #f00')
-
     } else {
       currentTurnPlayer  = "Carol";
-      // $(imageCarol > img).html("");   // ???????
-      $("#imageClown, #scoreClown").css('box-shadow', '');
-      $("#imageCarol, #scoreCarol").css('box-shadow', '0px 10px 15px #f00')
-
     }
 
   }
@@ -170,18 +201,28 @@ var playMove = function (squareX, squareY) {
 
 };
 
+
 var updateUI = function (cell, x, y) {
 
   // create an HTML element that looks like this: <div class="X">X</div>
   var elem = $('<div>').addClass( gameBoard[x][y] ).html( gameBoard[x][y] );
 
   $(cell).html( elem );
+
+  updatePlayerIndicator();
 }
 
 
 //==============================================================
 $(document).ready(function() {
 
+
+
+  // page load: choose starting player and indicate who it is
+
+  chooseStartingPlayer();
+
+  updatePlayerIndicator();
 
 
     $("#resetButton").on('click', function () {
@@ -200,11 +241,20 @@ $(document).ready(function() {
 
       chooseStartingPlayer();
 
+      updatePlayerIndicator();
+
       $("#bottomText").html("");
 
     });
 
   $("#gameboard td").on('click', function () {
+
+
+    //To stop play once a win or draw is registered.
+    if(winner.length > 0 || isDraw === true) {
+      return;
+    }
+
     var x = $(this).data('xpos');
     var y = $(this).data('ypos');
     console.log( x, y );
@@ -221,7 +271,12 @@ $(document).ready(function() {
 
       // code to run when someone has won
 
-      $("#bottomText").html("The winner is " + winner);
+      //$("#bottomText").html("The winner is " + winner);
+
+
+      var index = gamesPlayed % funFacts.length;
+      console.log(index, funFacts[ index ]  );
+      $('#bottomText').html("The winner is " + winner + "<br><br>Fun fact: " + funFacts[ index ] );
 
       // update the score variables
       if (winner === "Carol" ) {

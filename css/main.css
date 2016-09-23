@@ -2,14 +2,17 @@
 
 h1, p {
   font-weight: bold;
-  color: red;
+  color: #ed3e4f; /* red; */
   text-shadow: green 2px 5px;
 }
 
 h1, h2, p, .font {
   font-family: 'Indie Flower', cursive, sans-serif;
   text-align: center;
-  font-size: 2em;
+}
+
+h1 {
+  font-size: 3.4em;
 }
 
 .X {
@@ -41,10 +44,11 @@ body {
   position: absolute;
   left: 67px;
   top: 118px;
+  border: 6px solid red;
 }
 
 table {
-  background-color: rgba(255,255,255,.8);  /*opacity here rather than background image.*/
+  background-color: rgba(255,255,255,.95);  /*opacity here rather than background image.*/
   border-collapse: collapse;
 }
 
@@ -91,7 +95,7 @@ table tr th:last-child {
 
 .playerBox{
   position: relative;
-  top: 20px;
+  /*top: 20px;*/
   width: 100px;
   height: 100px;
   display: inline-block;
@@ -116,9 +120,24 @@ table tr th:last-child {
   width: 100px;
   height: 100px;
   border: 5px solid red;
-  /* box-shadow: 0px 10px 15px #f00; */
-  box-shadow: ;
-  /* box-shadow: 0px 10px 15px #f00;  */  /* Glow effect */
+  /* box-shadow: 20px 20px 55px #f00;  */
+}
+
+#imageClown > img {
+  width: 100px;
+  height: 100px;
+  border: 5px solid green;
+   /* box-shadow: 20px 20px 55px #0f0;  */  /* Glow effect */
+}
+
+.turnCarol{
+  width: 214px;
+  box-shadow: 0 0 15px #f00;
+}
+
+.turnClown{
+  width: 214px;
+  box-shadow: 0 0 15px #0f0;
 }
 
 #scoreCarol {
@@ -130,20 +149,13 @@ table tr th:last-child {
 
 #scoreAll{
   right: 70px;
-  top: 96px;
+  top: 116px;
   position: absolute;
 
 }
 
 #containerClown, #containergGames{
   margin-top: 20px;
-}
-
-#imageClown > img {
-  width: 100px;
-  height: 100px;
-  border: 5px solid green;
-  /* box-shadow: 0px 10px 15px #0f0; */   /* Glow effect */
 }
 
 #scoreClown {
@@ -166,17 +178,27 @@ table tr th:last-child {
   font-size: 2em;
 }
 
-#bottomText{
-  position: absolute;
+#bottomContainer{
+  /* position: absolute;  */
   bottom: 10px;
-  text-align: center;
-  font-size: 2em;
-  font-family: 'Indie Flower', cursive, sans-serif;
   width: 100%;
-  color: red;
-  text-shadow: green 2px 5px;
+/*  height::30%;   */
+  margin-top: 400px;
+  margin-bottom: 2px;
 }
 
-#bottomText p{
-  font-size: 1em;
+#bottomText {
+  text-align: center;
+  font-size:  50px; /* 2em; */
+  font-family: 'Indie Flower', cursive, sans-serif;
+  width: 80%;
+   margin: 0 auto;
+  /*height: 300px;*/
+  color: red;
+  text-shadow: green 2px 5px;
+  background-color: rgba(255,255,255,.5);
 }
+/*
+#bottomText p {
+  font-size: 1.4em;
+}*/
